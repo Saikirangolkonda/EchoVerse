@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echoverse - Virtual Podcast Creator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif; /* Updated to Poppins font */
+            margin: 0;
+            padding: 0;
+            background: url('../static/assets/home.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        /* Main Content */
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            height: 80vh;
+            text-align: left;
+            padding: 30px;
+            position: relative; /* Required for absolute blur positioning */
+        }
+
+        main h1 {
+            font-size: 5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ff6600, #2738ed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        main p {
+            font-size: 2.2rem;
+            max-width: 800px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1; /* Ensures text appears above the blur */
+        }
+
+        /* Blur Effect */
+        .blur-effect {
+            position: absolute;
+            top: calc(40% + 25px); /* Adjust position to align below the text */
+            left: 0;
+            width: 100%;
+            height: 150px; /* Adjust height for the blur */
+            background: rgba(252, 249, 249, 0);
+            backdrop-filter: blur(5px); /* Gaussian blur */
+            z-index: 0;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-getstarted {
+            background: linear-gradient(90deg, #ff6600, #412ece); /* Gradient color */
+            color: #fff;
+        }
+
+        .btn-getstarted:hover {
+            background: linear-gradient(90deg, #ec0520, #de0e0e); /* Reversed gradient on hover */
+        }
+
+        /* Scrolling Marquee */
+        .marquee {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 1rem;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee span {
+            animation: scroll 10s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main h1 {
+                font-size: 3rem;
+            }
+
+            main p {
+                font-size: 1.2rem;
+                max-width: 90%;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Echoverse</h1>
+        <p>A generative AI  that transforms topics into lifelike, podcast-style audio with customizable hosts.</p>
+        <div class="blur-effect"></div> <!-- Added blur effect under the text -->
+        <div class="buttons">
+            <button class="btn btn-getstarted" onclick="location.href='/generate';">Get Started</button>
+        </div>
+    </main>
+    <div class="marquee">
+        <span>Creates lifelike interactions between virtual hosts 🔊 Ensures an immersive listening experience 🔊 Echoverse produces an audio file that mimics professional podcasts 🔊</span>
+    </div>
+    <footer>
+        <p>Thank You for Choosing Echoverse!</p>
+    </footer>
+</body>
+</html>
